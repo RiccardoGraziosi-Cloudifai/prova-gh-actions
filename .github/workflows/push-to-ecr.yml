@@ -22,11 +22,11 @@ jobs:
     - name: Login to ECR registry
       uses: aws-actions/amazon-ecr-login@v1
       with:
-        registries: ${{ variables.ECR_REGISTRY_ID }}
+        registries: ${{ vars.ECR_REGISTRY_ID }}
       
     - name: Build and push to ECR
       env:
-        ECR_REGISTRY: ${{ variables.ECR_REGISTRY_ID }}
+        ECR_REGISTRY: ${{ vars.ECR_REGISTRY_ID }}
         ECR_REPOSITORY: prova-gh-actions
         IMAGE_TAG: 1.0.0
       run: |

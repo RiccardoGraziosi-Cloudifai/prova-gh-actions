@@ -29,7 +29,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ vars.ECR_REGISTRY_ID }}
         ECR_REPOSITORY: ${{ vars.ECR_REGISTRY_NAME }}
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: ${{ github.ref_name }}
       run: |
         docker build --tag $ECR_REGISTRY.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
